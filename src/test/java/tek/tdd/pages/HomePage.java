@@ -13,7 +13,7 @@ public class HomePage extends SeleniumUtilities {
     @FindBy(className = "chakra-heading")
     public WebElement topNavLogo;
 
-    @FindBy(className = "chakra-button")
+    @FindBy(xpath = "/html/body/div[1]/div/div[2]/div/div/a")
     public WebElement CreatePAccountlink;
 
 }

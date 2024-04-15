@@ -14,13 +14,15 @@ public class CreateAccountSteps extends BaseUITests{
     */
     @Test
     public void userClickOnCreateAccount(){
-       // clickOnElement(homePage.CreatePAccountlink);
+        clickOnElement(homePage.CreatePAccountlink);
+
     }
     @Test
     public void validateFormAndTitle(){
+        clickOnElement(homePage.CreatePAccountlink);
 
-       // String expectedTitle="Create Primary Account Holder";
-       // String actualTitle=getElementText(createAccountPage.TextAccountTitle);
-       // Assert.assertEquals(expectedTitle,actualTitle);
+        String expectedTitle="Create Primary Account Holder";
+        String actualTitle=getElementText(createAccountPage.TextAccountTitle);
+        Assert.assertEquals(expectedTitle,actualTitle);
     }
 }

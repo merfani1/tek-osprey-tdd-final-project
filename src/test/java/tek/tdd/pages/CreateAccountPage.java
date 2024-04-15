@@ -11,7 +11,7 @@ public class CreateAccountPage extends SeleniumUtilities {
         PageFactory.initElements(getDriver(),this);
     }
 
-    @FindBy(className = "chakra-heading css-1jb3vzl")
+    @FindBy(xpath = "/html/body/div[1]/div/div[2]/div/div/div/h2")
     public WebElement TextAccountTitle;
 
     @FindBy(id="email")
