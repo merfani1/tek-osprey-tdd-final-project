@@ -16,4 +16,10 @@ public class HomePage extends SeleniumUtilities {
     @FindBy(xpath = "/html/body/div[1]/div/div[2]/div/div/a")
     public WebElement CreatePAccountlink;
 
+    @FindBy(xpath = "/html/body/div[1]/div/div[1]/div/a[2]")
+    public WebElement LoginButton;
+
+    @FindBy(className = "chakra-button")
+    public WebElement loginButton;
+
 }

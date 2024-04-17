@@ -21,7 +21,7 @@ public class SetupTests extends BaseUITests {
 
     @Test
     public void validateLoginButtonIsEnabled() {
-        //Navigate to retail app and make sure Sign in button is enabled.
+        //Navigate to insurance app and make sure Sign in button is enabled.
         boolean isSignInButtonEnabled = isElementEnabled(homePage.CreatePAccountlink);
         Assert.assertTrue(isSignInButtonEnabled, "Sign in button should be enabled all time");
     }
