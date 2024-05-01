@@ -4,7 +4,7 @@ import tek.tdd.base.BaseUITests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class HomePageSteps extends BaseUITests {
+public class HomePageTest extends BaseUITests {
     //Validate When user navigate to home page title is TEK Insurance UI and create Primary Account
     //Button is existed
     @Test

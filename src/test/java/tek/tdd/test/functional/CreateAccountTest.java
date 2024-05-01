@@ -4,7 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tek.tdd.base.BaseUITests;
 
-public class CreateAccountSteps extends BaseUITests{
+public class CreateAccountTest extends BaseUITests{
     /*
     Create Account:
     Scenario 1)
@@ -27,7 +27,7 @@ public class CreateAccountSteps extends BaseUITests{
     @DataProvider(name = "validCredentials")
     private String[][] validCredentialProvider(){
         String[][]data={
-                {"reza.safar9@gmail.com","Reza","Teacher","safari","12/15/1999"}
+                {"reza.safar03@gmail.com","Reza","Teacher","safari","12/15/1999"}
         };
         return data;
     }
@@ -41,6 +41,7 @@ public class CreateAccountSteps extends BaseUITests{
 
     ) {
         clickOnElement(homePage.CreatePAccountlink);
+
         createAccountPage.createAccount(email,FirstName,LastName,EmploymentStatus,DateOfBirth);
 
         selectFromDropDown(createAccountPage.genderInput,"Male");

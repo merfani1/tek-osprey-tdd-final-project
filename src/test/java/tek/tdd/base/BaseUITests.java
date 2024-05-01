@@ -8,17 +8,17 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import tek.tdd.pages.CreateAccountPage;
-import tek.tdd.pages.HomePage;
-import tek.tdd.pages.LoginPage;
-import tek.tdd.pages.ProfilePage;
+import tek.tdd.pages.*;
 import tek.tdd.utilities.SeleniumUtilities;
 @Listeners({ExtentITestListenerAdapter.class})
 public class BaseUITests extends SeleniumUtilities {
     public HomePage homePage;
     public CreateAccountPage createAccountPage;
     public LoginPage loginPage;
-    public ProfilePage profilePage;
+    public UserProfilePage userProfilePage;
+    public PlansPage plansPage;
+    public AccountsPage accountsPage;
+
 
     @BeforeMethod
     public void initiateTestMethod(){
@@ -26,9 +26,11 @@ public class BaseUITests extends SeleniumUtilities {
 
         //Pages need initialized driver so after opening browser we Create Objects.
         homePage = new HomePage();
-       createAccountPage = new CreateAccountPage();
-       loginPage=new LoginPage();
-        profilePage=new ProfilePage();
+        createAccountPage = new CreateAccountPage();
+        loginPage=new LoginPage();
+        userProfilePage=new UserProfilePage();
+        plansPage=new PlansPage();
+        accountsPage=new AccountsPage();
 
     }
 

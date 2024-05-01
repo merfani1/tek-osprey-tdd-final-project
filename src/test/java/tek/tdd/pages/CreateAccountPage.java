@@ -54,7 +54,11 @@ public class CreateAccountPage extends SeleniumUtilities {
     @FindBy(xpath = "/html/body/div[1]/div/div[2]/div/div/div/h2[3]")
     public WebElement EmailAddress;
 
-    @FindBy(className = "chakra-alert__title")
+    @FindBy(xpath = "//div[@class='chakra-alert banner-error css-1ykemat']")
     public WebElement ErrorMessageExsitingAc;
+    //chakra-alert__title
+
+    @FindBy(xpath = "/html/body/div[1]/div/div[2]/div/div/div/form/div[1]")
+    public WebElement errorMessage;
 
 }

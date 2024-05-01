@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tek.tdd.base.BaseUITests;
-public class loginSteps extends BaseUITests {
+public class loginTest extends BaseUITests {
     /*
     Login:
     Scenario 1)

@@ -1,14 +1,12 @@
 package tek.tdd.test.functional;
 
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tek.tdd.base.BaseUITests;
 
-import java.util.List;
+import java.text.ParseException;
 
-public class PlansSteps extends BaseUITests {
+public class PlansTest extends BaseUITests {
     /*Plans
     Scenario 1)
     Navigate to Customer Service Portal with valid CSR credentials and navigate to Plans Page.
@@ -38,15 +36,26 @@ public class PlansSteps extends BaseUITests {
      Zone)
      */
     @Test(dataProvider = "validCredential_CSP")
-    public void testPlanDates(String UserName,String Password) throws InterruptedException {
+    public void validateCreateDatePlans(String UserName,String Password) throws InterruptedException {
         clickOnElement(loginPage.LogingButton);
         loginPage.DoLogin(UserName,Password);
 
         Thread.sleep(2000);
         clickOnElement(plansPage.PlansLink);
 
-        plansPage.validateCreateAndExpireDate();
+        plansPage.validateCreateDate();
 
+
+    }
+    @Test(dataProvider = "validCredential_CSP")
+    public void validateExpireDatePlans(String UserName,String Password) throws InterruptedException, ParseException {
+        clickOnElement(loginPage.LogingButton);
+        loginPage.DoLogin(UserName,Password);
+
+        Thread.sleep(2000);
+        clickOnElement(plansPage.PlansLink);
+
+        plansPage.validateExpireDatePlan();
 
     }
 }
