@@ -11,7 +11,7 @@ public class userProfileTest extends BaseUITests {
     click on profile button validate information is in Profile Side Drawer is correct.
 
      */
-/*
+
     @DataProvider(name = "validCredentialPro")
     public String[][] validCredentialProfile() {
         String[][] data = {
@@ -34,7 +34,8 @@ public class userProfileTest extends BaseUITests {
 
       waitForVisibility(userProfilePage.StatusActive);
       String actualStatus=getElementText(userProfilePage.StatusActive);
-        Assert.assertEquals(Status,actualStatus);
+      String expectedStatus="Active";
+        Assert.assertEquals(expectedStatus,actualStatus);
 
         String actualUserType=getElementText(userProfilePage.UserType);
         Assert.assertEquals(userType,actualUserType);
@@ -51,7 +52,7 @@ public class userProfileTest extends BaseUITests {
        System.out.println("You are successfully clicked on profile ");
     }
 
- */
+
 
     /*
     Scenario 2)
