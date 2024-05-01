@@ -1,12 +1,8 @@
-package tek.tdd.test.regression;
-
+package tek.tdd.test.functional;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tek.tdd.base.BaseUITests;
-
-import java.security.SecureRandom;
-
 
 public class CreateAccountSteps extends BaseUITests{
     /*
@@ -16,11 +12,6 @@ public class CreateAccountSteps extends BaseUITests{
     Create Account form page validate Form Title as Expected “Create Primary Account Holder”
     */
     @Test
-    public void userClickOnCreateAccount(){
-        clickOnElement(homePage.CreatePAccountlink);
-
-    }
-    @Test
     public void validateFormAndTitle(){
         clickOnElement(homePage.CreatePAccountlink);
 
@@ -28,14 +19,18 @@ public class CreateAccountSteps extends BaseUITests{
         String actualTitle=getElementText(createAccountPage.TextAccountTitle);
         Assert.assertEquals(expectedTitle,actualTitle);
     }
+    /*
+    Scenario 2)
+    On Create primary account holder form fill up the form and click on create Account Button
+    Validate user navigate to Sing up your Account page and email address shows as expected.
+     */
     @DataProvider(name = "validCredentials")
     private String[][] validCredentialProvider(){
         String[][]data={
-                {"reza.safar19@gmail.com","Reza","Teacher","safari","12/15/1999"}
+                {"reza.safar9@gmail.com","Reza","Teacher","safari","12/15/1999"}
         };
         return data;
     }
-
     @Test(dataProvider = "validCredentials")
     public void user_fillSignUpForm(
             String email,
@@ -44,7 +39,7 @@ public class CreateAccountSteps extends BaseUITests{
             String EmploymentStatus,
             String DateOfBirth
 
-    ){
+    ) {
         clickOnElement(homePage.CreatePAccountlink);
         createAccountPage.createAccount(email,FirstName,LastName,EmploymentStatus,DateOfBirth);
 
@@ -59,13 +54,14 @@ public class CreateAccountSteps extends BaseUITests{
         Assert.assertEquals(actualEmail,email,"Email should display all the time");
         System.out.println(actualEmail);
 
-
     }
-
+    /*
+    Scenario 3) Create account with existing email address and validate error message as expected
+     */
     @DataProvider(name = "existingCredentials")
     private String[][] existingCredentialProvider(){
         String[][]data={
-                {"reza.safar1@gmail.com","Reza","Teacher","safari","12/15/1999","ERROR"}
+                {"reza.safar1@gmail.com","Reza","Teacher","safari","12/15/1999","Account with email reza.safar1@gmail.com is exist"}
         };
         return data;
     }
@@ -87,16 +83,10 @@ public class CreateAccountSteps extends BaseUITests{
         selectFromDropDown(createAccountPage.maritalSt,"Married");
         clickOnElement(createAccountPage.createAccountBt);
 
-        // should add error message with Assert
+        // belongs to error message
        String actualErrorMessages= getElementText(createAccountPage.ErrorMessageExsitingAc);
-       Assert.assertEquals(expectedErrorMessage,actualErrorMessages);
-
-
-
+       String deleteErrorText=actualErrorMessages.replace("ERROR","").trim();
+       Assert.assertEquals(expectedErrorMessage,deleteErrorText);
     }
-
-
-
-
 
 }
