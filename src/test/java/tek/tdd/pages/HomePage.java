@@ -9,7 +9,7 @@ public class HomePage extends SeleniumUtilities {
         PageFactory.initElements(getDriver(), this);
     }
 
-    //driver.findElement(By.className("className"))
+    //driver.findElement(By.className("className")) new
     @FindBy(className = "chakra-heading")
     public WebElement topNavLogo;
 
@@ -21,5 +21,6 @@ public class HomePage extends SeleniumUtilities {
 
     @FindBy(className = "chakra-button")
     public WebElement loginButton;
+
 
 }
