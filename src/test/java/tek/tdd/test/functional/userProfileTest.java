@@ -15,21 +15,19 @@ public class userProfileTest extends BaseUITests {
     @DataProvider(name = "validCredentialPro")
     public String[][] validCredentialProfile() {
         String[][] data = {
-                {"supervisor", "tek_supervisor","Active","CSR","Supervisor","supervisor","admin"}
-                //
+                {"supervisor", "tek_supervisor"}
+
         };
         return data;
     }
     @Test(dataProvider = "validCredentialPro")
-    public void validateLoginWithValidCredential(String username,String password,String Status,String userType,String FullName, String userName,String Authorities
-                                                ) throws InterruptedException {
-        //,,
+    public void validateLoginWithValidCredential(String username,String password) throws InterruptedException {
             clickOnElement(homePage.LoginButton);
             loginPage.DoLogin(username,password);
             Thread.sleep(5000);
-            waitForVisibility(userProfilePage.profileBtn);
+
             clickOnElement(userProfilePage.profileBtn);
-            Thread.sleep(5000);
+
 
 
       waitForVisibility(userProfilePage.StatusActive);
@@ -37,17 +35,21 @@ public class userProfileTest extends BaseUITests {
       String expectedStatus="Active";
         Assert.assertEquals(expectedStatus,actualStatus);
 
-        String actualUserType=getElementText(userProfilePage.UserType);
-        Assert.assertEquals(userType,actualUserType);
+        String actualUserType=getElementText(userProfilePage.userTypeText);
+        String expctedUserType="CSR";
+        Assert.assertEquals(expctedUserType,actualUserType);
 
-        String actualFullName=getElementText(userProfilePage.fullName);
-        Assert.assertEquals(FullName,actualFullName);
+        String actualFullName=getElementText(userProfilePage.validateFullName);
+        String expectedFullName="Supervisor";
+        Assert.assertEquals(expectedFullName,actualFullName);
 
-        String actualUserName=getElementText(userProfilePage.userName);
-        Assert.assertEquals(userName,actualUserName);
+        String actualUserName=getElementText(userProfilePage.validateUserName);
+        String expectedUserName="supervisor";
+        Assert.assertEquals(expectedUserName,actualUserName);
 
-        String actualAuthorities=getElementText(userProfilePage.Authorities);
-       Assert.assertEquals(Authorities,actualAuthorities);
+       String actualAuthorities=getElementText(userProfilePage.validateAuthority);
+       String expectedAuthority="admin";
+       Assert.assertEquals(expectedAuthority,actualAuthorities);
 
        System.out.println("You are successfully clicked on profile ");
     }

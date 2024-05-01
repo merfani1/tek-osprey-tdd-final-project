@@ -17,20 +17,20 @@ public class UserProfilePage extends SeleniumUtilities {
     public WebElement profileBtn;
 
 
-    @FindBy(xpath = "/html/body/div[4]/div[3]/div/div/div/div/div/div[1]/p[2]/span/span")
+    @FindBy(xpath = "//span[@class='css-1ny2kle']")
     public WebElement StatusActive;
+// new path
+    @FindBy(xpath = "/html/body/div[3]/div[3]/div/div/div/div/div/div[2]/p[2]")
+    public WebElement userTypeText;
+    @FindBy(xpath = "/html/body/div[3]/div[3]/div/div/div/div/div/div[3]/p[2]")
+    public WebElement validateFullName;
+    @FindBy(xpath = "/html/body/div[3]/div[3]/div/div/div/div/div/div[4]/p[2]")
+    public WebElement validateUserName;
+    @FindBy(xpath = "/html/body/div[3]/div[3]/div/div/div/div/div/div[5]/ul/li")
+    public WebElement validateAuthority;
+    @FindBy(xpath = "/html/body/div[3]/div[3]/div/div/footer/div/button[1]")
+    public WebElement logoutBtn;
 
-    @FindBy(xpath = "/html/body/div[4]/div[3]/div/div/div/div/div/div[2]/p[2]")
-    public WebElement UserType;
-
-    @FindBy(xpath = "/html/body/div[4]/div[3]/div/div/div/div/div/div[3]/p[2]")
-    public WebElement fullName;
-
-    @FindBy(xpath = "/html/body/div[4]/div[3]/div/div/div/div/div/div[4]/p[2]")
-    public WebElement userName;
-
- @FindBy(xpath = "/html/body/div[4]/div[3]/div/div/div/div/div/div[5]/ul/li")
- public WebElement Authorities;
 
     @FindBy(xpath = "//button[@class='chakra-button css-1x18d5s']")
     public WebElement LogoutButton;
