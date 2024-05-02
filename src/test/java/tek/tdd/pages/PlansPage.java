@@ -20,14 +20,8 @@ public class PlansPage extends SeleniumUtilities {
         PageFactory.initElements(getDriver(),this);
 
     }
-
     @FindBy(xpath = "/html/body/div[1]/div/div[2]/div/div/a[2]")
     public WebElement PlansLink;
-
-   // int rowCount=driver.findElement(By.xpath("//table[@class='chakra-table css-5605sr']//tr")).getSize();
-    // int colCount=driver.findElement(By.xpath("//table[@class='chakra-table css-5605sr']//th")).getSize();
-    ////*[@id='root']/div/div[3]/div/div/div/div/table/tbody/tr[1]/td[1]
-
 
     @FindBy(xpath ="//table[@class='chakra-table css-5605sr']//tr")
     public WebElement rowOfTable;

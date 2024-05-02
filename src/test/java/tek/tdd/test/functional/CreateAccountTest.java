@@ -27,7 +27,7 @@ public class CreateAccountTest extends BaseUITests{
     @DataProvider(name = "validCredentials")
     private String[][] validCredentialProvider(){
         String[][]data={
-                {"reza.safar03@gmail.com","Reza","Teacher","safari","12/15/1999"}
+                {"reza.safar04@gmail.com","Reza","Teacher","safari","12/15/1999"}
         };
         return data;
     }

@@ -16,10 +16,8 @@ public class UserProfilePage extends SeleniumUtilities {
     @FindBy(xpath = "/html/body/div[1]/div/div[1]/div/button")
     public WebElement profileBtn;
 
-
     @FindBy(xpath = "//span[@class='css-1ny2kle']")
     public WebElement StatusActive;
-// new path
     @FindBy(xpath = "/html/body/div[3]/div[3]/div/div/div/div/div/div[2]/p[2]")
     public WebElement userTypeText;
     @FindBy(xpath = "/html/body/div[3]/div[3]/div/div/div/div/div/div[3]/p[2]")
@@ -30,7 +28,6 @@ public class UserProfilePage extends SeleniumUtilities {
     public WebElement validateAuthority;
     @FindBy(xpath = "/html/body/div[3]/div[3]/div/div/footer/div/button[1]")
     public WebElement logoutBtn;
-
 
     @FindBy(xpath = "//button[@class='chakra-button css-1x18d5s']")
     public WebElement LogoutButton;
