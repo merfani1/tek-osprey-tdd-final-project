@@ -3,9 +3,12 @@ package tek.tdd.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import tek.tdd.utilities.DataGenerator;
 import tek.tdd.utilities.SeleniumUtilities;
 
 public class CreateAccountPage extends SeleniumUtilities {
+
+
 
     public CreateAccountPage(){
         PageFactory.initElements(getDriver(),this);
@@ -44,7 +47,20 @@ public class CreateAccountPage extends SeleniumUtilities {
                                String LastName,
                                String EmploymentStatus,
                                String DateOfBirth){
+
         sendText(emailInput,email);
+        sendText(firstName,FirstName);
+        sendText(lastName,LastName);
+        sendText(EmpStatus,EmploymentStatus);
+        sendText(DoB,DateOfBirth);
+
+    }
+    public void createAccountWithRandomEmail(
+                               String FirstName,
+                               String LastName,
+                               String EmploymentStatus,
+                               String DateOfBirth){
+
         sendText(firstName,FirstName);
         sendText(lastName,LastName);
         sendText(EmpStatus,EmploymentStatus);

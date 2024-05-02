@@ -3,6 +3,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tek.tdd.base.BaseUITests;
+import tek.tdd.utilities.DataGenerator;
 
 public class CreateAccountTest extends BaseUITests{
     /*
@@ -11,6 +12,7 @@ public class CreateAccountTest extends BaseUITests{
     Navigate to Home page then click on Create Primary Account Button. User should navigate to
     Create Account form page validate Form Title as Expected “Create Primary Account Holder”
     */
+    String generateRandomEmail;
     @Test
     public void validateFormAndTitle(){
         clickOnElement(homePage.CreatePAccountlink);
@@ -27,13 +29,13 @@ public class CreateAccountTest extends BaseUITests{
     @DataProvider(name = "validCredentials")
     private String[][] validCredentialProvider(){
         String[][]data={
-                {"reza.safar04@gmail.com","Reza","Teacher","safari","12/15/1999"}
-        };
+                {"Reza","Teacher","safari","12/15/1999"}
+        };//"reza.safar06@gmail.com",
         return data;
     }
     @Test(dataProvider = "validCredentials")
     public void user_fillSignUpForm(
-            String email,
+
             String FirstName,
             String LastName,
             String EmploymentStatus,
@@ -42,8 +44,9 @@ public class CreateAccountTest extends BaseUITests{
     ) {
         clickOnElement(homePage.CreatePAccountlink);
 
-        createAccountPage.createAccount(email,FirstName,LastName,EmploymentStatus,DateOfBirth);
-
+        createAccountPage.createAccountWithRandomEmail(FirstName,LastName,EmploymentStatus,DateOfBirth);
+        generateRandomEmail=DataGenerator.randomEmail();
+        sendText(createAccountPage.emailInput,generateRandomEmail);
         selectFromDropDown(createAccountPage.genderInput,"Male");
         selectFromDropDown(createAccountPage.TitlePrefix,"Mr.");
         selectFromDropDown(createAccountPage.maritalSt,"Married");
@@ -52,7 +55,8 @@ public class CreateAccountTest extends BaseUITests{
         //Validate user navigate to Sing up your Account page and email address shows as expected.
 
         String actualEmail= getElementText(createAccountPage.EmailAddress);
-        Assert.assertEquals(actualEmail,email,"Email should display all the time");
+
+        Assert.assertEquals(actualEmail,generateRandomEmail,"Email should display all the time");
         System.out.println(actualEmail);
 
     }
