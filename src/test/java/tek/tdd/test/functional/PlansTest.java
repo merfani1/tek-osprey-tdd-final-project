@@ -42,7 +42,7 @@ public class PlansTest extends BaseUITests {
 
         Thread.sleep(2000);
         clickOnElement(plansPage.PlansLink);
-
+        Thread.sleep(2000);
         plansPage.validateCreateDate();
 
 
@@ -54,7 +54,7 @@ public class PlansTest extends BaseUITests {
 
         Thread.sleep(2000);
         clickOnElement(plansPage.PlansLink);
-
+        Thread.sleep(2000);
         plansPage.validateExpireDatePlan();
 
     }

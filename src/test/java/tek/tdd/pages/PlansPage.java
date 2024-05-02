@@ -50,7 +50,7 @@ public class PlansPage extends SeleniumUtilities {
     */
     public void validateCreateDate() {
         // Get today's date in EST time zone
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("MM/d/yyyy");
         dateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));
         Date today = new Date();
         String expectedCreateDate = dateFormat.format(today);
@@ -59,11 +59,11 @@ public class PlansPage extends SeleniumUtilities {
         WebElement createDateElement = getDriver().findElement(By.xpath("//*[@id='root']/div/div[3]/div/div/div/div/table/tbody/tr[2]/td[4]"));
         String actualCreateDate = createDateElement.getText();
         // Parse the input date string into LocalDate object
-        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
         LocalDate date = LocalDate.parse(actualCreateDate, inputFormatter);
 
         // Format the LocalDate object into "MM/dd/yyyy" format
-        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MM/d/yyyy");
         String actualFormattedDate = date.format(outputFormatter);
 
         // Validate Create Date
